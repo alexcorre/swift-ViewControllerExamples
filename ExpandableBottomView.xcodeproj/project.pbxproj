@@ -12,6 +12,8 @@
 		BD8FDEBD1958E80B00C0D4C0 /* ExpandableBottomViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8FDEBC1958E80B00C0D4C0 /* ExpandableBottomViewTests.swift */; };
 		BD8FDED01958EBE500C0D4C0 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8FDECE1958EBE500C0D4C0 /* DemoTableViewController.swift */; };
 		BD8FDED11958EBE500C0D4C0 /* DemoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8FDECF1958EBE500C0D4C0 /* DemoTableViewController.xib */; };
+		BD8FDED419590AC100C0D4C0 /* PeekContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8FDED219590AC100C0D4C0 /* PeekContainerViewController.swift */; };
+		BD8FDED519590AC100C0D4C0 /* PeekContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8FDED319590AC100C0D4C0 /* PeekContainerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		BD8FDEBC1958E80B00C0D4C0 /* ExpandableBottomViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableBottomViewTests.swift; sourceTree = "<group>"; };
 		BD8FDECE1958EBE500C0D4C0 /* DemoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		BD8FDECF1958EBE500C0D4C0 /* DemoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoTableViewController.xib; sourceTree = "<group>"; };
+		BD8FDED219590AC100C0D4C0 /* PeekContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekContainerViewController.swift; sourceTree = "<group>"; };
+		BD8FDED319590AC100C0D4C0 /* PeekContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeekContainerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 			children = (
 				BD8FDECE1958EBE500C0D4C0 /* DemoTableViewController.swift */,
 				BD8FDECF1958EBE500C0D4C0 /* DemoTableViewController.xib */,
+				BD8FDED219590AC100C0D4C0 /* PeekContainerViewController.swift */,
+				BD8FDED319590AC100C0D4C0 /* PeekContainerViewController.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -198,6 +204,7 @@
 			files = (
 				BD8FDED11958EBE500C0D4C0 /* DemoTableViewController.xib in Resources */,
 				BD8FDEB11958E80B00C0D4C0 /* Images.xcassets in Resources */,
+				BD8FDED519590AC100C0D4C0 /* PeekContainerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +224,7 @@
 			files = (
 				BD8FDED01958EBE500C0D4C0 /* DemoTableViewController.swift in Sources */,
 				BD8FDEAF1958E80B00C0D4C0 /* AppDelegate.swift in Sources */,
+				BD8FDED419590AC100C0D4C0 /* PeekContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ExpandableBottomView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -333,6 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ExpandableBottomView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

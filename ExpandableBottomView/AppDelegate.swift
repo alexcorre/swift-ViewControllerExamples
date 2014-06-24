@@ -16,8 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     
-    var vc:DemoTableViewController = DemoTableViewController()
-    self.window!.rootViewController = vc
+    var tableViewController:DemoTableViewController = DemoTableViewController()
+    var peekContainerVC:PeekContainerViewController = PeekContainerViewController()
+//    var peekContainerVC:PeekContainerViewController = PeekContainerViewController(mainVC: tableViewController)
+    
+    self.window!.rootViewController = peekContainerVC
     
     self.window!.backgroundColor = UIColor.whiteColor()
     self.window!.makeKeyAndVisible()
