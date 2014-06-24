@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     
-    //var vc:ContainerViewController = ContainerViewController(nibName: "ContainerViewController", bundle: NSBundle.mainBundle())
-    var vc:ContainerViewController = ContainerViewController()
+    var vc:DemoTableViewController = DemoTableViewController()
     self.window!.rootViewController = vc
     
     self.window!.backgroundColor = UIColor.whiteColor()

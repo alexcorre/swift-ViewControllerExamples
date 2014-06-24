@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DemoTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   @IBOutlet var tableView : UITableView
   
