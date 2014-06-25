@@ -15,14 +15,21 @@ class PeekContainerViewController: UIViewController {
   @IBOutlet var dimmerView:UIView
   
   var isPeekAtTop = false
-  var startingPeekTopPosition:CGFloat = 0.0
+  var shouldAccountForStatusBar = true
   
+  var draggingBeganPeekOffset:CGFloat?
+  var collapsedPeekTopOffset:CGFloat
+  var expandedPeekTopOffset:CGFloat = 0.0
+
+  let SCREEN_RECT = UIScreen.mainScreen().bounds
   let MAX_DIMMER_ALPHA = 0.7
   let PEEK_ANIMATION_DURATION = 0.17
+  let DEFAULT_BOTTOM_PEEK_HEIGHT = 70.0
   
   // INITIALIZERS
   
   init() {
+    collapsedPeekTopOffset = SCREEN_RECT.height - DEFAULT_BOTTOM_PEEK_HEIGHT
     super.init(nibName: "PeekContainerViewController", bundle: NSBundle.mainBundle())
   }
   
@@ -38,6 +45,10 @@ class PeekContainerViewController: UIViewController {
     // pan gesture recognizer to bottom view
     var panGestureRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "peekViewMoved:")
     peekView.addGestureRecognizer(panGestureRecognizer)
+    
+    // Setup initial positions
+    setupInitialPeekViewPosition()
+    updatePeekViewOffsets()
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -45,6 +56,18 @@ class PeekContainerViewController: UIViewController {
   }
   
   // PEEK / DIMMER VIEW ANIMATIONS
+  
+  func setupInitialPeekViewPosition() {
+    peekView.frame.origin.y = collapsedPeekTopOffset
+  }
+  
+  func updatePeekViewOffsets() {
+    if shouldAccountForStatusBar {
+      expandedPeekTopOffset = 20.0
+    }
+    
+    // TODO update based on what bottom view controller wants
+  }
   
   func peekViewTapped(recognizer:UIGestureRecognizer) {
     if isPeekAtTop {
@@ -57,7 +80,7 @@ class PeekContainerViewController: UIViewController {
   func animatePeekToTop() {
     UIView.animateWithDuration(PEEK_ANIMATION_DURATION,
       animations: {
-        self.peekView.frame.origin.y = 20
+        self.peekView.frame.origin.y = self.expandedPeekTopOffset
         self.dimmerView.alpha = self.MAX_DIMMER_ALPHA
       },
       completion: {
@@ -69,7 +92,7 @@ class PeekContainerViewController: UIViewController {
   func animatePeekToBottom() {
     UIView.animateWithDuration(PEEK_ANIMATION_DURATION,
       animations: {
-        self.peekView.frame.origin.y = 498
+        self.peekView.frame.origin.y = self.collapsedPeekTopOffset
         self.dimmerView.alpha = 0
       }, completion: {
         _ in
@@ -79,7 +102,7 @@ class PeekContainerViewController: UIViewController {
   
   func peekViewMoved(panRecognizer:UIPanGestureRecognizer) {
     if panRecognizer.state == UIGestureRecognizerState.Began {
-      startingPeekTopPosition = peekView.frame.origin.y
+      draggingBeganPeekOffset = peekView.frame.origin.y
     }
     
     if panRecognizer.state == UIGestureRecognizerState.Ended {
@@ -96,7 +119,7 @@ class PeekContainerViewController: UIViewController {
     
     } else {
       var translation = panRecognizer.translationInView(peekView)
-      peekView.frame.origin.y = startingPeekTopPosition + translation.y
+      peekView.frame.origin.y = draggingBeganPeekOffset! + translation.y
       adjustDimmerView(peekView.frame.origin.y)
     }
   }
